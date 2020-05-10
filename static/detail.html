@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detail</title>
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="assets/css/petshow.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<script type="text/javascript" src="assets/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
+  <script type="text/javascript" src="assets/js/detail.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <link rel="stylesheet" href="assets/css/lb.css">
+  <script src="assets/js/lb.js"></script>
+  <script>
+    window.onload = function () {
+      // 轮播选项
+      const options = {
+        id: 'lb-1',              // 轮播盒ID
+        speed: 1000,              // 轮播速度(ms)
+        delay: 3000,             // 轮播延迟(ms)
+        direction: 'left',       // 图片滑动方向
+        moniterKeyEvent: true,   // 是否监听键盘事件
+        moniterTouchEvent: true  // 是否监听屏幕滑动事件
+      }
+      const lb = new Lb(options);
+      lb.start();
+    }
+    </script>
+</head>
+<body>
+  <header class="am-topbar am-topbar-inverse">
+    <div class="amz-container">
+        <h1 class="am-topbar-brand">
+            <a href="#" class="am-topbar-logo">
+                <img src="assets/images/pets_logo1.png" alt="">
+            </a>
+        </h1>
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+        data-am-collapse="{target: '#doc-topbar-collapse-5'}">
+            <span class="am-sr-only">
+                导航切换
+            </span>
+            <span class="am-icon-bars">
+            </span>
+        </button>
+        <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-5">
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+                <li class="am-active">
+                    <a href="#">
+                        首页
+                    </a>
+                </li>
+                <li class="am-dropdown" data-am-dropdown="">
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
+                        发现萌宠                            
+                        </span>
+                    </a>                        
+                </li>
+                <li>
+                    <a href="#">
+                        个人中心
+                    </a>
+                </li>
+                <li><form action="/searchlist/" method="post" style="margin: auto 0;">
+                    <!-- <span class="keywords"><h1>请输入关键字：</h1></span><br/> -->
+                    <input type="text" id="search-text" name="q" placeholder="请输入关键字">
+                    <input type="submit" id='search-button'></input>
+                    <p><span class="serch_res" id='search-result'></span></p>
+                </form></li>
+            </ul>
+            <div class="user_login fr" style="display: block;">
+                <img src="assets/images/pets_logo.png" class="lgin_pic">
+                <a href="#">用户张山</a>
+                <a href="#">退出</a>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- 
+    <div class="header_con">
+        <div class="header">
+            <a href="#" class="logo fl"><img src="../images/logo.png" alt="logo"></a>
+            <div class="user_btns fr">
+                <a href="javascript:;" class="login_btn">登录</a> / <a href="javascript:;" class="register_btn">注册</a>
+            </div>
+            <!-- 用户登录后显示下面，隐藏上面 -->
+            <!-- <div class="user_login fr">
+                <img src="../images/person01.png" class="lgin_pic">
+                <a href="#">用户张三</a>
+                <a href="#">退出</a>
+            </div>
+        </div>
+    </div> --> 
+    
+    <div class="conter_con">
+        <div class="detail_con fl">
+            <h3>恒指创收盘历史新高 沪指创逾2个月来新高 房地产板块集体爆发</h3>
+            <div class="detail_about clearfix">
+                <span class="time_souce fl">2018-01-16 14:38 来源: 商务部</span>
+                <span class="comment fr">3</span>
+            </div>
+            <p>
+            港股方面今天表现强劲，开年以来的上涨势头仍然延续，恒指收涨1.8%创下收盘新高。此前恒指的峰值是在2007年10月份盘中触及的31958点。</p>
+<p>
+今天恒指51支成份股中，42支上涨，7支下跌，对恒指贡献最大的个股包括建设银行上涨3.7%，腾讯控股上涨2.5%，香港交易所上涨5.9%，工商银行上涨3.3%，中国平安上涨2.8%。</p>
+<p>
+2018年的前15日，恒生指数已经上涨了4.75%，恒生国企指数上涨了6.50%。</p>
+<p>
+兴业证券张忆东在最新报告中表示，港股作为全球估值洼地，不论是分红率高的价值股还是业绩确定的成长股都受益于新一年中资和海外机构资金的重新布局。他维持2016年以来对“港股牛市”的判断，认为2018年港股市场会出现核心资产驱动的慢牛、长牛行情。他还预计今年下半年港股将迎来牛市主升浪。</p>
+<p>
+与A股交相呼应，港股内房股今天也是集体爆发的行情。万科企业涨9.2%，融创中国涨3.7%，碧桂园涨3%，中国恒大涨1.6%。</p>
+<p>
+此外，中国平安港股股价再创历史新高，盘中一度触及91.00港元。中国平安在A股市场今天也一度上涨近2%，离历史高点仅一步之遥，但收盘时回落，最终收涨0.2%。</p>
+<p>
+昨天晚间，中国平安公布2017年保费收入，全年该集团控股子公司平安财险、平安人寿、平安养老、平安健康原保险合同保费收入分别为2159.84亿元、3689.34亿元、175.6亿元及21.47亿元，合计约6046.26亿元人民币，同比增28.9%。除此以外，市场传出中国平安旗下的陆金所将于4月分拆于香港上市，估值达600亿美元。</p>
+<!-- <div id="container">
+<div id="photo">
+<img src="assets/images/lunbo1.png" alt="美图M8s"></a>
+<img src="assets/images/lunbo2.png" alt="黑色星期五">
+<img src="assets/images/lunbo3.png" alt="厨卫365">
+<img src="assets/images/lunbo4.png" alt="君乐宝买一送一">
+</div>
+</div> -->
+<div class="lb-box" id="lb-1">
+<div class="lb-content">
+    <div class="lb-item active">
+      <a href="###">
+        <img src="assets/images/lunbo1.png" alt="picture loss">       
+      </a>
+    </div>
+    <div class="lb-item">
+        <a href="###">
+        <img src="assets/images/lunbo2.png" alt="picture loss">
+        </a>
+    </div>
+    <div class="lb-item">
+        <a href="###">
+        <img src="assets/images/lunbo3.png" alt="picture loss">
+        </a>
+    </div>
+    <div class="lb-item">
+        <a href="###">
+        <img src="assets/images/lunbo2.png" alt="picture loss">
+        </a>
+    </div>   
+  </div>
+  <!-- 轮播标志 -->
+  <ol class="lb-sign">
+    <li class="active">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ol>
+  <!-- 轮播控件 -->
+  <div class="lb-ctrl left">＜</div>
+  <div class="lb-ctrl right">＞</div>
+ </div>
+
+        <form action="" class="comment_form">
+            <div class="person_pic">
+                <img src="assets/images/cat.jpg" alt="用户图标">
+            </div>
+            <textarea placeholder="请发表您的评论" class="comment_input"></textarea>
+            <input type="submit" name="" value="评 论" class="comment_sub">
+        </form>
+
+
+        <div class="comment_count">
+            4条评论
+        </div>
+        
+        <div class="comment_list_con">
+            <div class="comment_list">
+                <div class="person_pic fl">
+                    <img src="assets/images/worm.jpg" alt="用户图标">
+                </div>    
+                <div class="user_name fl">用户张山</div>
+                <div class="comment_text fl">
+                    遏制茅台酒价格过快上涨，多渠道供给，就不一定要买，租茅台酒也可以的，租售同权。开发共有产权茅台酒，让老百姓喝得起茅台酒，饮者有其酒。
+                </div>
+                <div class="comment_time fl">2017-01-01 00:00:00</div>           
+            </div>
+
+           
+        </div>
+            
+            
+        </div>
+
+    </div>
+    <div class="footer" style="text-align: center;">        
+        <span style="color: blanchedalmond;">Designed with <i class="fas fa-heart"></i> by catnip</span>
+       
+    </div>
+    <!-- <footer class="footer text-center py-2 theme-bg-dark">		   
+        		   
+    </footer> -->
+    <script>
+        $(document).ready(function(){
+            $("#search-text").keyup(function(){
+                var q = $("#search-text").val();                         //获取搜索框输入的值
+                $.get("/searchdetail/",{'q':q}, function(data){               //参数：发送的url；传入的数据；请求成功后的调用函数（data即是试图函数返回的json格式数据）详情
+                    for (var i = data.length - 1; i >= 0; i--) {        
+                        $('#search-result').append(data[i]+'<br/>')      //加入到search-result部分显示
+                    };
+                })
+            });
+            $('#search-text').keydown(function(){
+                $('#search-result').empty();
+            })
+            $('#search-text').blur(function(){
+                $('#search-result').empty();
+            })
+        });
+    </script>   
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="assets/css/petshow.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/amazeui.lazyload.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<script type="text/javascript" src="assets/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="assets/js/main.js"></script>
+</head>
+<body>
+    
+    <div class="header_con">
+        <header class="am-topbar am-topbar-inverse">
+            <div class="amz-container">
+                <h1 class="am-topbar-brand">
+                    <a href="#" class="am-topbar-logo">
+                        <img src="assets/images/pets_logo1.png" alt="">
+                    </a>
+                </h1>
+                <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+                data-am-collapse="{target: '#doc-topbar-collapse-5'}">
+                    <span class="am-sr-only">
+                        导航切换
+                    </span>
+                    <span class="am-icon-bars">
+                    </span>
+                </button>
+                <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-5">
+                    <ul class="am-nav am-nav-pills am-topbar-nav">
+                        <li class="am-active">
+                            <a href="#">
+                                首页
+                            </a>
+                        </li>
+                        <li class="am-dropdown" data-am-dropdown="">
+                            <a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
+                                发现萌宠                            
+                                </span>
+                            </a>                        
+                        </li>
+                        <li>
+                            <a href="#">
+                                个人中心
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="user_login fr" style="display: block;">
+                        <img src="assets/images/pets_logo.png" class="lgin_pic">
+                        <a href="#">用户张山</a>
+                        <a href="#">退出</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+		<!-- <div class="header">
+			<a href="#" class="logo fl"><img src="assets/images/pets_logo1.png" alt="logo"></a>
+			<div class="user_login fr" style="display: block;">
+				<img src="assets/images/pets_logo.png" class="lgin_pic">
+				<a href="#">用户张山</a>
+				<a href="#">退出</a>
+			</div>
+		</div> -->
+	</div>
+	
+	<div class="conter_con">
+		<div class="user_menu_con fl">
+			<div class="user_center_pic">
+				<img src="assets/images/pets_logo.png" alt="用户图片">
+			</div>
+			<div class="user_center_name">用户张山</div>
+
+			<ul class="option_list">
+				<li class="active"><a href="user_base_info.html" target="main_frame">基本资料</a></li>
+				<li><a href="user_pic_info.html" target="main_frame">头像设置</a></li>
+                <li><a href="user_follow.html" target="main_frame">我的关注</a></li>
+                <li><a href="user_fans.html" target="main_frame">我的粉丝</a></li>
+				<li><a href="user_pass_info.html" target="main_frame">密码修改</a></li>
+				<!-- <li><a href="user_collection.html" target="main_frame">我的收藏</a></li> -->
+				<li><a href="relase.html" target="main_frame">动态发布</a></li>
+				<li><a href="user_trends_list.html" target="main_frame">动态列表</a></li>
+			</ul>
+		</div>
+
+		<div class="user_con fr">
+			<iframe src="user_base_info.html" frameborder="0" name="main_frame" class="main_frame" id="main_frame"></iframe>
+		</div>		
+	</div>
+	<div class="footer" style="text-align: center;">        
+        <span style="color: blanchedalmond;">Designed with <i class="fas fa-heart"></i> by catnip</span>
+       
+    </div>
+</body>
+</html>

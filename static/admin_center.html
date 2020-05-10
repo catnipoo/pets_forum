@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/main_admin.css">
+	<script type="text/javascript" src="assets/js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    <div class="header">
+		<a href="#" class="logo fl"><img src="assets/images/pets_logo1.png" alt="logo"></a>
+		<a href="#" class="logout fr">退 出</a>
+	</div>
+	
+	<div class="side_bar">
+		<div class="user_info">
+			<img src="assets/images/cat.jpg" alt="张大山">
+			<p>欢迎你 <em>张大山</em></p>
+		</div>
+
+		<div class="menu_con">
+			<div class="first_menu active"><a href="user_list.html" class="icon021" target="main_frame">用户管理</a></div>
+            <div class="first_menu"><a href="trends_review.html" class="icon031" target="main_frame"class="icon02"> 动态管理</a></div>
+            <div class="first_menu"><a href="trends_type.html" class="icon034" target="main_frame">分类管理</a></div>
+			
+		</div>
+	</div>
+
+	<div class="main_body" id="main_body">
+		<iframe src="user_list.html" frameborder="0" id="main_frame" name="main_frame" frameborder="0" scrolling="auto"></iframe>
+	</div>
+	
+	<script>
+		$(function(){
+			$('.first_menu').click(function(){
+				$(this).addClass('active').siblings('.first_menu').removeClass('active');
+				$(this).next().slideDown().siblings('.sub_menu').slideUp();
+			})
+			var frame_w = $('#main_body').outerWidth();
+			var frame_h = $('#main_body').outerHeight();
+			$('#main_frame').css({'width':frame_w,'height':frame_h});
+		})
+	</script>
+
+</body>
+</html>
