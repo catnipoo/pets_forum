@@ -3,25 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>trends</title>
+    <title>search</title>
     <link rel="stylesheet" href="{{static('assets/css/amazeui.min.css')}}">
     <link rel="stylesheet" href="{{static('assets/css/petshow.css')}}">
-    <link rel="stylesheet" href="{{static('assets/css/animate.min.css')}}">
-    <script src="{{static('assets/js/jquery.min.js')}}"></script>
-    <script src="{{static('assets/js/amazeui.min.js')}}"></script>
-    <script src="{{static('assets/js/amazeui.lazyload.min.js')}}"></script>
     <link rel="stylesheet" type="text/css" href="{{static('assets/css/reset.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{static('assets/css/main.css')}}">
 	<script type="text/javascript" src="{{static('assets/js/jquery-1.12.4.min.js')}}"></script>
-	<script type="text/javascript" src="{{static('assets/js/jquery.form.min.js')}}"></script>
-    <script type="text/javascript" src="{{ static('assets/js/vue-2.5.16.js')}}"></script>
-    <script type="text/javascript" src="{{ static('assets/js/main.js')}}"></script>
-
-    <script type="text/javascript" src="{{ static('assets/js/axios-0.18.0.min.js')}}"></script>
+  <script type="text/javascript" src="{{static('assets/js/jquery.form.min.js')}}"></script>
+  <script type="text/javascript" src="{{static('assets/js/detail.js')}}"></script>
+    <script type="text/javascript" src="{{static('assets/js/main.js')}}"></script>
+    <link rel="stylesheet" href="{{static('assets/css/lb.css')}}">
+  <script src="{{static('assets/js/lb.js')}}"></script>
+  <script>
+    window.onload = function () {
+      // 轮播选项
+      const options = {
+        id: 'lb-1',              // 轮播盒ID
+        speed: 1000,              // 轮播速度(ms)
+        delay: 3000,             // 轮播延迟(ms)
+        direction: 'left',       // 图片滑动方向
+        moniterKeyEvent: true,   // 是否监听键盘事件
+        moniterTouchEvent: true  // 是否监听屏幕滑动事件
+      }
+      const lb = new Lb(options);
+      lb.start();
+    }
+    </script>
 </head>
 <body>
-<div id="trend" v-cloak>
-    <header class="am-topbar am-topbar-inverse">
+<div id="app" v-cloak>
+   <header class="am-topbar am-topbar-inverse">
         <div class="amz-container">
             <h1 class="am-topbar-brand">
                 <a href="#" class="am-topbar-logo">
@@ -73,6 +84,7 @@
             </div>
         </div>
     </header>
+
     <div data-am-widget="tabs" class="am-tabs am-tabs-d2 am_news_tab">
         <!-- <ul class="am-tabs-nav am-cf am_cf">
           <li class="am-active">
@@ -91,7 +103,7 @@
           <div class="am-list-news-bd am_news_list_all">
           <ul class="am-list">
             <!--缩略图在标题左边-->
-              {% for trend in trends %}
+              {% for trend in contacts %}
                   {% if trend.imginfo_set.count() == 0  %}
 
                       <li class="am-g am-list-item-desced am_list_li">
@@ -131,23 +143,14 @@
           <div data-tab-panel-1 class="am-tab-panel ">
        </div>
       </div>
-      
-      </div>
-      <div class="footer" style="text-align: center;">        
-        <span style="color: blanchedalmond;">Designed with <i class="fas fa-heart"></i> by catnip</span>
-       
-    </div>
-    </div>
-<!-- 
-    
-<script src="assets/plugins/jquery-3.3.1.min.js"></script>
-<script src="assets/plugins/popper.min.js"></script> 
-<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  -->
 
-<!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
-<script type="text/javascript" src="{{ static('assets/js/trends.js')}}"></script>
-<script src="{{static('assets/js/demo/style-switcher.js')}}"></script>
-<script type="text/javascript" src="{{static('assets/js/jquery-1.12.4.min.js')}}"></script>
+      </div>
+      <div class="footer" style="text-align: center;">
+        <span style="color: blanchedalmond;">Designed with <i class="fas fa-heart"></i> by catnip</span>
+
+    </div>
+    </div></div>
+	<script type="text/javascript" src="{{static('assets/js/jquery-1.12.4.min.js')}}"></script>
 <script>
     $(document).ready(function(){
         $("#search-text").keyup(function(){

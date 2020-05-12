@@ -10,9 +10,26 @@ from django.views import View
 from pymysql import DatabaseError
 
 from apps.trends.models import Channel, Trends, ImgInfo
-from apps.users.models import User
+from apps.users.models import User, UserRelation
 from pets_forum.settings import logger
 from utils.secret import SecretOauth
+
+class FollowView(View):
+    def get(self,request,user_id):
+        user = request.user
+        person = User.objects.get(id=user_id)
+        user_rel = UserRelation.objects.create(target_user=person.id,user_id=user,status=1)
+        user_rel.save()
+        ste = '/personinfo/' + user_id + '/'
+        return redirect(ste)
+
+class UnFollowView(View):
+    def get(self,request,user_id):
+        user = request.user
+        person = User.objects.get(id=user_id)
+        user_rel = UserRelation.objects.filter(target_user=person.id,user_id=user,status=1).delete()
+        ste = '/personinfo/' + user_id + '/'
+        return redirect(ste)
 
 class RelaseView(View):
     def get(self,request):
@@ -56,11 +73,13 @@ class PersoninfoView(View):
     def get(self,request,user_id):
         person = User.objects.get(id=user_id)
         trends = Trends.objects.filter(user_id_id=user_id)
+        user_rel = UserRelation.objects.filter(user_id=request.user).filter(target_user=user_id).count()
         for i in trends:
             i.create_time = str(i.create_time)[0:16]
         context = {
             'person':person,
-            'trends':trends
+            'trends':trends,
+            'user_rel':user_rel
         }
         return render(request,'person_info.html',context)
 
@@ -72,11 +91,29 @@ class UserpassView(View):
 
 class UserfollowView(View):
     def get(self,request):
-        return render(request,'user_follow.html')
+        user_fol = UserRelation.objects.filter(user_id=request.user)
+        user_list = []
+        for i in user_fol:
+            u = User.objects.get(id=i.target_user)
+            user_list.append(u)
+        context = {
+            'user_fol':user_fol,
+            'user_list':user_list
+        }
+        return render(request,'user_follow.html',context)
 
 class UserfansView(View):
     def get(self,request):
-        return render(request,'user_fans.html')
+        user_fan = UserRelation.objects.filter(target_user=request.user.id)
+        user_list = []
+        for i in user_fan:
+            u = User.objects.get(id=i.user_id_id)
+            user_list.append(u)
+        context = {
+            'user_fan': user_fan,
+            'user_list': user_list
+        }
+        return render(request,'user_fans.html',context)
 
 class UserpicView(View):
     def get(self,request):

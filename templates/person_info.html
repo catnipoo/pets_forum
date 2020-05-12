@@ -92,8 +92,13 @@
             </ul>
             
             <div class="focus_other">
-                <a href="javascript:;" class="focus">关注</a>
-        <a href="javascript:;" class="focused"><span class="out">已关注</span><span class="over">取消关注</span></a>
+                {% if  user_rel == 0 %}
+                <a href="/followperson/{{person.id}}/" class="focus">关注</a>
+                {% else %}
+
+                <a href="/unfollowperson/{{person.id}}/" class="focused"><span class="out">已关注</span>
+            <span class="over">取消关注</span></a>
+                {% endif %}
             </div>            
 
         </div>

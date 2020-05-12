@@ -1,11 +1,33 @@
+import json
+
 from django import http
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
-
+from django.db.models import Q
 from apps.trends.models import ImgInfo, Trends, Commit
 # 首页显示
 from apps.users.models import User
+
+class LianxiangView(View):
+    def get(self,request):
+        q = request.GET.get('q')
+        recontents = Trends.objects.filter(title__contains=q)
+        rejson = []
+        for recontent in recontents:
+            rejson.append(recontent.title)
+        return HttpResponse(json.dumps(rejson), content_type='application/json')
+class ListView(View):
+    def post(self,request):
+
+        q = request.POST.get('q')
+        recontents = Trends.objects.filter(title__contains=q)
+        print(recontents)
+
+        return render(request,'search.html',{'contacts':recontents})
+
+
 
 class CommitsView(View):
     def post(self,request):

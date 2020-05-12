@@ -13,24 +13,47 @@
     <script type="text/javascript" src="{{ static('assets/js/main.js')}}"></script>
     <script type="text/javascript" src="{{ static('assets/js/axios-0.18.0.min.js')}}"></script>
 	<script type="text/javascript" src="{{static('assets/js/jquery.pagination.min.js')}}"></script>
+    <style>
+        .avatar{
+            width: 50px;
+            height: 50px;
+        }
+    </style>
 </head>
 <body class="inframe_body">
         <h3 class="common_title">我的粉丝</h3>
         <ul class="card_list_con">
+         <ul class="card_list_con">
+            {% if user_fan.count == 0 %}
+                <li><span>您没有粉丝</span></li>
+            {% else %}
+                {% for i in user_list %}
             <li class="author_card card_list">
-                <a href="#" target="_blank" class="author_pic"><img src="../images/cat.jpg" alt="author_pic"></a>
-                <a href="#" target="_blank" class="author_name">张大山</a>
-                <div class="follows"><span>粉丝</span><b>36</b></div>
-                <a href="javascript:;" class="focus fr">关注</a>
-                <a href="javascript:;" class="focused fr"><span class="out">已关注</span><span class="over">取消关注</span></a>
+                <a href="/personinfo/{{ i.id }}/" target="_blank">
+                    {% if  i.default_image == '' %}
+                    <img src="{{static('assets/images/default_avatar.jpeg')}}" alt="author_pic" class="avatar">
+                    {% else %}
+                    <img src="{{i.default_image.url}}" alt="author_pic" class="avatar">
+                    {% endif %}
+
+                </a>
+                <a href="/personinfo/{{ i.id }}/" target="_blank" class="author_name">{{ i.username }}</a>
+                <div class="follows"><span>粉丝</span><b>1</b></div>
+{#                <a href="javascript:;" class="focus fr">关注</a>#}
+{#                <a href="javascript:;" class="focused fr"><span class="out">已关注</span><span class="over">取消关注</span></a>#}
             </li>
-            <li class="author_card card_list">
-                <a href="#" target="_blank" class="author_pic"><img src="../images/cat.jpg" alt="author_pic"></a>
-                <a href="#" target="_blank" class="author_name">张大山</a>
-                <div class="follows"><span>粉丝</span><b>36</b></div>
-                <a href="javascript:;" class="focus fr">关注</a>
-                <a href="javascript:;" class="focused fr"><span class="out">已关注</span><span class="over">取消关注</span></a>
-            </li>
+                {% endfor %}
+
+
+{#            <li class="author_card card_list">#}
+{#                <a href="#" target="_blank" class="author_pic"><img src="../images/cat.jpg" alt="author_pic"></a>#}
+{#                <a href="#" target="_blank" class="author_name">张大山</a>#}
+{#                <div class="follows"><span>粉丝</span><b>36</b></div>#}
+{#                <a href="javascript:;" class="focus fr">关注</a>#}
+{#                <a href="javascript:;" class="focused fr"><span class="out">已关注</span><span class="over">取消关注</span></a>#}
+{#            </li>#}
+            {% endif %}
+
         </ul>
         
         

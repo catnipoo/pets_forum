@@ -113,6 +113,7 @@
                 <span class="comment fr">{{trend.id}}</span>
             </div>
             {{trend.content}}
+{% if images %}
 <div class="lb-box" id="lb-1">
 <div class="lb-content">
     {% for i in images %}
@@ -148,7 +149,7 @@
   <div class="lb-ctrl left">＜</div>
   <div class="lb-ctrl right">＞</div>
  </div>
-
+{% endif %}
         <form method="post" action="/commits/" class="comment_form">
             <div class="person_pic">
                 {% if user.default_image == '' %}
