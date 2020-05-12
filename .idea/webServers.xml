@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="9a0bc96a-0f72-4c09-9d11-5285a53b8217" name="pets_forum" url="http://192.168.255.131">
+      <webServer id="3b72b010-e300-4358-887b-a4debf4ebeda" name="pets_forum" url="http://192.168.255.131">
         <fileTransfer host="192.168.255.131" port="22" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />

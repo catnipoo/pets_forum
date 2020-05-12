@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+
+from system.storage import ImageStorage
 from utils.modles import BaseModel
 # Create your models here.
 
@@ -8,10 +10,11 @@ class User(AbstractUser):
     # user_id = models.AutoField(max_length=8,unique=True,verbose_name="用户id")
     mobile = models.CharField(max_length=11,unique=True,verbose_name="手机号")
     status = models.BooleanField(default=True,verbose_name="帐号状态")
-    default_image = models.CharField(max_length=1000,default='img/default_avatar',verbose_name='默认头像')
+    default_image = models.ImageField(upload_to='user_image/%Y/%m/%d',storage=ImageStorage(),null=True,verbose_name="头像")
     following_count = models.IntegerField(default=0,verbose_name="关注数")
     articl_count = models.IntegerField(default=0,verbose_name="文章数")
     fans_count = models.IntegerField(default=0,verbose_name="粉丝数")
+    email_active = models.BooleanField(default=False, verbose_name='邮箱验证状态')
 
 
 

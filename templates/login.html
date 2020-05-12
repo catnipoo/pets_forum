@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录注册</title>
+    <script type="text/javascript" src="{{ static('assets/js/vue-2.5.16.js')}}"></script>
+    <script type="text/javascript" src="{{ static('assets/js/axios-0.18.0.min.js')}}"></script>
+    <link rel="stylesheet" href="{{static('assets/css/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{static('assets/css/style.css')}}">
+</head>
+<body>
+{#<div id="log" v-cloak>#}
+    <div class="materialContainer">
+        {% if register_errmsg %}
+        <span class="error_tip2">{{ register_errmsg }}</span>
+        {% endif %}
+        {% if account_errmsg %}
+        <div class="pwd_error">{{ account_errmsg }}</div>
+        {% endif %}
+        <div class="box">
+            <form  method="post" action="/login/">
+            <div class="title">登录</div>
+            <div class="input">
+                <label for="name">用户名</label>
+                <input type="text" name="name" id="name">
+                <span class="spin"></span>
+            </div>
+            <div class="input">
+                <label for="pass">密码</label>
+                <input type="password" name="pass" id="pass">
+                <span class="spin"></span>
+            </div>
+            <div class="button login">
+                <button>
+                    <span>登录</span>
+                    <i class="fa fa-check"></i>
+                </button>
+            </div>
+            <a href="javascript:" class="pass-forgot">忘记密码？</a>
+            </form>
+        </div>
+{#</div>#}
+<div id="reg" v-cloak>
+        <div class="overbox">
+            <form method="post" action="/register/">
+            <div class="material-button alt-2">
+                <span class="shape"></span>
+            </div>
+            <div class="title">注册</div>
+            <div class="input">
+                <label for="regname">用户名</label>
+                <input type="text" v-model="username" @blur="check_username" name="username" id="regname">
+                <span class="spin" v-show="error_name">[[ error_name_message ]]</span>
+            </div>
+            <div class="input">
+                <label for="regpass">密码</label>
+                <input type="password" v-model="password" @blur="check_password" name="password" id="regpass">
+                <span class="spin"v-show="error_password">[[error_password_message]]</span>
+            </div>
+            <div class="input">
+                <label for="reregpass">确认密码</label>
+                <input type="password"  v-model="password2" @blur="check_password2"  name="repassword" id="reregpass">
+                <span class="spin"v-show="error_check_password">[[error_password2_message]]</span>
+            </div>
+            <div class="input">
+                <label for="regemail">邮箱</label>
+                <input type="text" v-model="email" @blur="check_email" name="email" id="regemail">
+                <span class="spin" v-show="error_email">[[error_email_message]]</span>
+            </div>
+            <div class="input">
+                <label for="regmobile">手机</label>
+                <input type="text" v-model="mobile" @blur="check_mobile" name="mobile" id="regmobile">
+                <span class="spin"v-show="error_phone">[[error_mobile_message]]</span>
+            </div>
+            <div class="button">
+                <button>
+                    <span>注册</span>
+                </button>
+            </div>
+            </form>
+        </div>
+    
+</div>
+</div>
+    <script src="{{static('assets/js/jquery.min.js')}}"></script>
+    <script src="{{static('assets/js/register.js')}}"></script>
+    <script src="{{static('assets/js/registerv.js')}}"></script>
+
+</body>
+</html>

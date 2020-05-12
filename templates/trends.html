@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trends</title>
+    <link rel="stylesheet" href="{{static('assets/css/amazeui.min.css')}}">
+    <link rel="stylesheet" href="{{static('assets/css/petshow.css')}}">
+    <link rel="stylesheet" href="{{static('assets/css/animate.min.css')}}">
+    <script src="{{static('assets/js/jquery.min.js')}}"></script>
+    <script src="{{static('assets/js/amazeui.min.js')}}"></script>
+    <script src="{{static('assets/js/amazeui.lazyload.min.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{static('assets/css/reset.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{static('assets/css/main.css')}}">
+	<script type="text/javascript" src="{{static('assets/js/jquery-1.12.4.min.js')}}"></script>
+	<script type="text/javascript" src="{{static('assets/js/jquery.form.min.js')}}"></script>
+    <script type="text/javascript" src="{{ static('assets/js/vue-2.5.16.js')}}"></script>
+    <script type="text/javascript" src="{{ static('assets/js/main.js')}}"></script>
+
+    <script type="text/javascript" src="{{ static('assets/js/axios-0.18.0.min.js')}}"></script>
+</head>
+<body>
+<div id="trend" v-cloak>
+    <header class="am-topbar am-topbar-inverse">
+        <div class="amz-container">
+            <h1 class="am-topbar-brand">
+                <a href="#" class="am-topbar-logo">
+                    <img src="{{static('assets/images/pets_logo1.png')}}" alt="">
+                </a>
+            </h1>
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+            data-am-collapse="{target: '#doc-topbar-collapse-5'}">
+                <span class="am-sr-only">
+                    导航切换
+                </span>
+                <span class="am-icon-bars">
+                </span>
+            </button>
+            <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-5">
+                <ul class="am-nav am-nav-pills am-topbar-nav">
+                    <li >
+                        <a href="/">
+                            首页
+                        </a>
+                    </li>
+                    <li >
+                        <a  href="/trends/">
+                            发现萌宠
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/userinfo/">
+                            个人中心
+                        </a>
+                    </li>
+                    <li><form action="/searchlist/" method="post" style="margin: auto 0;">
+                        <!-- <span class="keywords"><h1>请输入关键字：</h1></span><br/> -->
+                        <input type="text" id="search-text" name="q" placeholder="请输入关键字">
+                        <input type="submit" id='search-button'></input>
+                        <p><span class="serch_res" id='search-result'></span></p>
+                    </form></li>
+                </ul>
+                <div class="user_login fr" style="display: block;">
+                    {% if user.default_image == '' %}
+                <img src="{{static('assets/images/default_avatar.jpeg')}}" alt="用户图标">
+                {% else %}
+                    <img src="{{ user.default_image.url }}" alt="用户图标">
+                {% endif %}
+                    <a href="#">用户[[ username ]]</a>
+                    <a href="/logout/">退出</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div data-am-widget="tabs" class="am-tabs am-tabs-d2 am_news_tab">
+        <!-- <ul class="am-tabs-nav am-cf am_cf">
+          <li class="am-active">
+            <a href="[data-tab-panel-0]">全部</a>
+          </li>
+          <li class="">
+            <a href="[data-tab-panel-1]">新鲜事</a>
+          </li>
+          <li class="">
+            <a href="[data-tab-panel-2]">涨知识</a>
+          </li>
+      
+        </ul> -->
+        <div class="am-tabs-bd">
+          <div data-tab-panel-0 class="am-tab-panel am-active">
+          <div class="am-list-news-bd am_news_list_all">
+          <ul class="am-list">
+            <!--缩略图在标题左边-->
+              {% for trend in trends %}
+                  {% if trend.imginfo_set %}
+            <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left am_list_li">
+              <div class="am-u-sm-3 am-list-thumb am_list_thumb">
+                  <img src="{{trend.imginfo_set.first().img.url}}" class="am_news_list_img" alt="{{ trend.title }}"
+                  />
+              </div>
+              <div class=" am-u-sm-9 am-list-main am_list_main">
+                <h3 class="am-list-item-hd am_list_title">
+                  <a href="/trendsdetail/{{ trend.id }}/" target="_Blank" class="">{{trend.title}}</a>
+                </h3>
+                <div class="am_list_author"><a href="javascript:void(0)"><span class="am_list_author_ico" style="background-image: url(img/tx.jpg);"></span><span class="name">{{trend.user_id.username}}</span></a><span class="am_news_time">&nbsp;•&nbsp;<time class="timeago" title="2015-08-13 08:02:40 +0800" datetime="2015-08-13 08:02:40 +0800"> {{trend.create_time}}</time></span></div>
+                <div class="am-list-item-text am_list_item_text ">
+                    {{ trend.content[0:20] }}...
+                </div>
+              </div>
+            </li>
+             {% else %}
+            <li class="am-g am-list-item-desced am_list_li">
+              <div class=" am-list-main">
+                <h3 class="am-list-item-hd am_list_title am_list_title_s">
+                  <a href="/trendsdetail/{{ trend.id }}/" target="_Blank" class="">{{ trend.title }}</a>
+                </h3>
+                <div class="am_list_author"><a href="javascript:void(0)"><span class="am_list_author_ico" style="background-image: url(img/tx.jpg);"></span><span class="name">{{trend.user_id.username}}</span></a><span class="am_news_time">&nbsp;•&nbsp;<time class="timeago" title="2015-08-13 08:02:40 +0800" datetime="2015-08-13 08:02:40 +0800"> {{trend.create_time}}</time></span></div>
+
+                <div class="am-list-item-text am_list_item_text">{{ trend.content[0:20] }}...</div>
+              </div>
+            </li>
+                  {% endif %}
+              {% endfor %}
+
+          </ul>
+        </div>
+        </div>
+          <div data-tab-panel-1 class="am-tab-panel ">
+       </div>
+      </div>
+      
+      </div>
+      <div class="footer" style="text-align: center;">        
+        <span style="color: blanchedalmond;">Designed with <i class="fas fa-heart"></i> by catnip</span>
+       
+    </div>
+    </div>
+<!-- 
+    
+<script src="assets/plugins/jquery-3.3.1.min.js"></script>
+<script src="assets/plugins/popper.min.js"></script> 
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  -->
+
+<!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+<script type="text/javascript" src="{{ static('assets/js/trends.js')}}"></script>
+<script src="{{static('assets/js/demo/style-switcher.js')}}"></script>
+</body>
+</html>

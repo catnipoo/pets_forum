@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="{{static('assets/css/amazeui.min.css')}}">
+    <link rel="stylesheet" href="{{static('assets/css/petshow.css')}}">
+    <link rel="stylesheet" href="{{static('assets/css/animate.min.css')}}">
+    <script src="{{static('assets/js/jquery.min.js')}}"></script>
+    <script src="{{static('assets/js/amazeui.min.js')}}"></script>
+    <script src="{{static('assets/js/amazeui.lazyload.min.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{static('assets/css/reset.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{static('assets/css/main.css')}}">
+	<script type="text/javascript" src="{{static('assets/js/jquery-1.12.4.min.js')}}"></script>
+	<script type="text/javascript" src="{{static('assets/js/jquery.form.min.js')}}"></script>
+    <script type="text/javascript" src="{{ static('assets/js/vue-2.5.16.js')}}"></script>
+    <script type="text/javascript" src="{{ static('assets/js/main.js')}}"></script>
+
+    <script type="text/javascript" src="{{ static('assets/js/axios-0.18.0.min.js')}}"></script>
+</head>
+<body>
+    <div id="app" v-cloak>
+    <div class="header_con">
+    <header class="am-topbar am-topbar-inverse">
+        <div class="amz-container">
+            <h1 class="am-topbar-brand">
+                <a href="#" class="am-topbar-logo">
+                    <img src="{{static('assets/images/pets_logo1.png')}}" alt="">
+                </a>
+            </h1>
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+            data-am-collapse="{target: '#doc-topbar-collapse-5'}">
+                <span class="am-sr-only">
+                    导航切换
+                </span>
+                <span class="am-icon-bars">
+                </span>
+            </button>
+            <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-5">
+                <ul class="am-nav am-nav-pills am-topbar-nav">
+                    <li >
+                        <a href="/">
+                            首页
+                        </a>
+                    </li>
+                    <li >
+                        <a  href="/trends/">
+                            发现萌宠
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/userinfo/">
+                            个人中心
+                        </a>
+                    </li>
+                    <li><form action="/searchlist/" method="post" style="margin: auto 0;">
+                        <!-- <span class="keywords"><h1>请输入关键字：</h1></span><br/> -->
+                        <input type="text" id="search-text" name="q" placeholder="请输入关键字">
+                        <input type="submit" id='search-button'></input>
+                        <p><span class="serch_res" id='search-result'></span></p>
+                    </form></li>
+                </ul>
+                <div class="user_login fr" style="display: block;">
+                    {% if user.default_image == '' %}
+                <img src="{{static('assets/images/default_avatar.jpeg')}}" alt="用户图标">
+                {% else %}
+                    <img src="{{ user.default_image.url }}" alt="用户图标">
+                {% endif %}
+                    <a href="#">用户[[ username ]]</a>
+                    <a href="/logout/">退出</a>
+                </div>
+            </div>
+        </div>
+    </header>
+		<!-- <div class="header">
+			<a href="#" class="logo fl"><img src="assets/images/pets_logo1.png" alt="logo"></a>
+			<div class="user_login fr" style="display: block;">
+				<img src="assets/images/pets_logo.png" class="lgin_pic">
+				<a href="#">用户张山</a>
+				<a href="#">退出</a>
+			</div>
+		</div> -->
+	</div>
+	
+	<div class="conter_con">
+		<div class="user_menu_con fl">
+			<div class="user_center_pic">
+				{% if user.default_image %}
+                <a href="#" class="author_pic"><img src="{{user.default_image.url}}" alt="author_pic"></a>
+            {% else %}
+                <a href="#" class="author_pic"><img src="{{static('assets/images/default_avatar.jpeg')}}" alt="author_pic"></a>
+            {% endif %}
+			</div>
+			<div class="user_center_name">用户[[username]]</div>
+
+			<ul class="option_list">
+				<li class="active"><a href="/userbaseinfo/" target="main_frame">基本资料</a></li>
+				<li><a href="/userpic/" target="main_frame">头像设置</a></li>
+                <li><a href="/userfollow/" target="main_frame">我的关注</a></li>
+                <li><a href="/userfans/" target="main_frame">我的粉丝</a></li>
+				<li><a href="/userpass/" target="main_frame">密码修改</a></li>
+				<!-- <li><a href="user_collection.html" target="main_frame">我的收藏</a></li> -->
+				<li><a href="/relase/" target="main_frame">动态发布</a></li>
+				<li><a href="/usertrends/" target="main_frame">动态列表</a></li>
+			</ul>
+		</div>
+
+		<div class="user_con fr">
+			<iframe src="/userbaseinfo/" frameborder="0" name="main_frame" class="main_frame" id="main_frame"></iframe>
+		</div>		
+	</div>
+	<div class="footer" style="text-align: center;">        
+        <span style="color: blanchedalmond;">Designed with <i class="fas fa-heart"></i> by catnip</span>
+       
+    </div></div>
+<script type="text/javascript" src="{{ static('assets/js/cookie.js')}}"></script>
+</body>
+</html>

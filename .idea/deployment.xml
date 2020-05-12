@@ -5,14 +5,14 @@
       <paths name="Copy of project-level server 'pets_forum'">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/catnip/pets/pets1/pets_forum" local="$PROJECT_DIR$" />
+            <mapping deploy="/home/catnip/pets_forum" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>
       <paths name="pets_forum">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/catnip/pets/pets1/pets_forum" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/home/catnip/pets_forum" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

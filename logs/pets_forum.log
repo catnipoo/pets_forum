@@ -1,0 +1,38 @@
+INFO 2020-05-11 22:27:33,287 basehttp 124 "GET / HTTP/1.1" 200 4725
+INFO 2020-05-11 22:27:33,362 basehttp 124 "GET /static/assets/css/reset.css HTTP/1.1" 200 723
+INFO 2020-05-11 22:27:33,365 basehttp 124 "GET /static/assets/js/user_news_release.js HTTP/1.1" 200 453
+INFO 2020-05-11 22:27:33,366 basehttp 124 "GET /static/assets/css/main.css HTTP/1.1" 200 21917
+INFO 2020-05-11 22:27:33,368 basehttp 124 "GET /static/assets/js/jquery-1.12.4.min.js HTTP/1.1" 200 97163
+WARNING 2020-05-11 22:27:35,131 base 152 Not Found: /favicon.ico
+WARNING 2020-05-11 22:27:35,132 basehttp 124 "GET /favicon.ico HTTP/1.1" 404 2602
+INFO 2020-05-11 22:27:41,247 basehttp 124 "POST /upload/ HTTP/1.1" 200 190
+INFO 2020-05-11 14:48:00,187 basehttp 124 "GET / HTTP/1.1" 200 4725
+ERROR 2020-05-11 14:48:14,460 exception 135 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/catnip/.virtualenvs/pets/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/catnip/.virtualenvs/pets/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/catnip/.virtualenvs/pets/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/catnip/.virtualenvs/pets/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/catnip/.virtualenvs/pets/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/catnip/pets/pets1/pets_forum/apps/trends/views.py", line 13, in post
+    trends = Trends.objects.get(id=1)
+  File "/home/catnip/.virtualenvs/pets/lib/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/catnip/.virtualenvs/pets/lib/python3.6/site-packages/django/db/models/query.py", line 380, in get
+    self.model._meta.object_name
+apps.trends.models.DoesNotExist: Trends matching query does not exist.
+ERROR 2020-05-11 14:48:14,574 basehttp 124 "POST /upload/ HTTP/1.1" 500 84777
+INFO 2020-05-11 14:49:19,250 basehttp 124 "POST /upload/ HTTP/1.1" 200 190
+INFO 2020-05-11 14:52:12,550 basehttp 124 "GET /show/ HTTP/1.1" 200 430
+INFO 2020-05-11 14:52:12,643 basehttp 124 "GET /media/trends_image/ea835cc3gw1f0zw4mhoslj20gj0neq3w_bd55208.jpg HTTP/1.1" 200 45858
+INFO 2020-05-11 14:52:12,645 basehttp 124 "GET /media/trends_image/ea835cc3gw1f3zdd9733wj20h00s03z2_kslY5xv.jpg HTTP/1.1" 200 30836
+INFO 2020-05-11 14:52:12,690 basehttp 124 "GET /media/trends_image/ea835cc3gw1f162zoh8eqj20gj0neab0_adqKlFC.jpg HTTP/1.1" 200 45378
+INFO 2020-05-11 14:52:48,176 basehttp 124 "GET / HTTP/1.1" 200 4725
+INFO 2020-05-11 14:53:35,091 basehttp 124 "POST /upload/ HTTP/1.1" 200 190
+INFO 2020-05-11 14:57:04,766 basehttp 124 "GET / HTTP/1.1" 200 4725
+INFO 2020-05-11 14:57:26,041 basehttp 124 "POST /upload/ HTTP/1.1" 200 190

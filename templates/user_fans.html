@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户中心</title>
+
+    <link rel="stylesheet" type="text/css" href="{{static('assets/css/reset.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{static('assets/css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{static('assets/css/jquery.pagination.css')}}">
+	<script type="text/javascript" src="{{static('assets/js/jquery-1.12.4.min.js')}}"></script>
+	<script type="text/javascript" src="{{static('assets/js/jquery.form.min.js')}}"></script>
+    <script type="text/javascript" src="{{ static('assets/js/vue-2.5.16.js')}}"></script>
+    <script type="text/javascript" src="{{ static('assets/js/main.js')}}"></script>
+    <script type="text/javascript" src="{{ static('assets/js/axios-0.18.0.min.js')}}"></script>
+	<script type="text/javascript" src="{{static('assets/js/jquery.pagination.min.js')}}"></script>
+</head>
+<body class="inframe_body">
+        <h3 class="common_title">我的粉丝</h3>
+        <ul class="card_list_con">
+            <li class="author_card card_list">
+                <a href="#" target="_blank" class="author_pic"><img src="../images/cat.jpg" alt="author_pic"></a>
+                <a href="#" target="_blank" class="author_name">张大山</a>
+                <div class="follows"><span>粉丝</span><b>36</b></div>
+                <a href="javascript:;" class="focus fr">关注</a>
+                <a href="javascript:;" class="focused fr"><span class="out">已关注</span><span class="over">取消关注</span></a>
+            </li>
+            <li class="author_card card_list">
+                <a href="#" target="_blank" class="author_pic"><img src="../images/cat.jpg" alt="author_pic"></a>
+                <a href="#" target="_blank" class="author_name">张大山</a>
+                <div class="follows"><span>粉丝</span><b>36</b></div>
+                <a href="javascript:;" class="focus fr">关注</a>
+                <a href="javascript:;" class="focused fr"><span class="out">已关注</span><span class="over">取消关注</span></a>
+            </li>
+        </ul>
+        
+        
+{#        <div id="pagination" class="page"></div>#}
+        <script>
+            $(function() {
+                $("#pagination").pagination({
+                    currentPage: 2,
+                    totalPage: 3,
+                    callback: function(current) {
+                        alert('ok!');
+                    }
+                });
+            });
+        </script>
+</body>
+</html>
