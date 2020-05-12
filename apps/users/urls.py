@@ -19,6 +19,7 @@ url(r'^userfans/$',views.UserfansView.as_view()),
 url(r'^usertrends/$',views.UsertrendsView.as_view()),
 url(r'^relase/$',views.RelaseView.as_view()),
 url(r'^userbaseinfo/$',views.UserbaseinfoView.as_view()),
+url(r'^personinfo/(?P<user_id>\d+)/$',views.PersoninfoView.as_view()),
 # 判断用户名是否重复
 url(r'^usernames/(?P<username>[a-zA-Z0-9_-]{5,20})/count/$',views.UsernameCountView.as_view()),
 # 判断手机是否重复

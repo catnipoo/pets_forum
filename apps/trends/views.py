@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django import http
+from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 
@@ -6,6 +7,15 @@ from apps.trends.models import ImgInfo, Trends, Commit
 # 首页显示
 from apps.users.models import User
 
+class CommitsView(View):
+    def post(self,request):
+        user = request.user
+        tred_id = request.POST.get('tred_id')
+        commit_context = request.POST.get('commit_context')
+        com = Commit(user_id=user,trends_id_id=tred_id,conent=commit_context)
+        com.save()
+        ste = '/trendsdetail/'+ tred_id+'/'
+        return redirect(ste)
 
 class IndexView(View):
     def get(self,request):

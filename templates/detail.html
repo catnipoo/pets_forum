@@ -149,7 +149,7 @@
   <div class="lb-ctrl right">＞</div>
  </div>
 
-        <form action="" class="comment_form">
+        <form method="post" action="/commits/" class="comment_form">
             <div class="person_pic">
                 {% if user.default_image == '' %}
                 <img src="{{static('assets/images/default_avatar.jpeg')}}" alt="用户图标">
@@ -157,7 +157,8 @@
                     <img src="{{ user.default_image.url }}" alt="用户图标">
                 {% endif %}
             </div>
-            <textarea placeholder="请发表您的评论" class="comment_input"></textarea>
+            <textarea placeholder="请发表您的评论" name="commit_context" class="comment_input"></textarea>
+            <input name="tred_id" value="{{ trend.id }}" style="display: none">
             <input type="submit" name="" value="评 论" class="comment_sub">
         </form>
 

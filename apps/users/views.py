@@ -51,6 +51,21 @@ class UsertrendsView(View):
         }
         return render(request,'user_trends_list.html',context=context)
 
+
+class PersoninfoView(View):
+    def get(self,request,user_id):
+        person = User.objects.get(id=user_id)
+        trends = Trends.objects.filter(user_id_id=user_id)
+        for i in trends:
+            i.create_time = str(i.create_time)[0:16]
+        context = {
+            'person':person,
+            'trends':trends
+        }
+        return render(request,'person_info.html',context)
+
+
+
 class UserpassView(View):
     def get(self,request):
         return render(request,'user_pass_info.html')
