@@ -53,23 +53,54 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'pets_forum.urls'
 
+# TEMPLATES = [
+#     {
+#         'BACKEND': 'django.template.backends.jinja2.Jinja2',  # 1.jinja2模板引擎
+#         'DIRS': [os.path.join(BASE_DIR, 'templates')], # 2.模本文件夹路径
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'context_processors': [
+#                 'django.template.context_processors.debug',
+#                 'django.template.context_processors.request',
+#                 'django.contrib.auth.context_processors.auth',
+#                 'django.contrib.messages.context_processors.messages',
+#             ],
+#             # 3.加载Jinja2模板引擎环境
+#             'environment': 'utils.jinja2_env.jinja2_environment',
+#         },
+#     },
+# ]
+CONTEXT_PROCESSORS = [
+    'django.template.context_processors.debug',
+    'django.template.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+]
+
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.jinja2.Jinja2',  # 1.jinja2模板引擎
-        'DIRS': [os.path.join(BASE_DIR, 'templates')], # 2.模本文件夹路径
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {'context_processors': CONTEXT_PROCESSORS, },
+    },
+    {
+        'BACKEND': 'django.template.backends.jinja2.Jinja2'
+        ,
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-            # 3.加载Jinja2模板引擎环境
-            'environment': 'utils.jinja2_env.jinja2_environment',
+            'context_processors': CONTEXT_PROCESSORS,
+            'environment': 'utils.env.environment'
         },
     },
 ]
+# TEMPLATE_LOADERS = (
+#     'django.template.loaders.filesystem.Loader',
+#     'django.template.loaders.app_directories.Loader',
+# )
 
 WSGI_APPLICATION = 'pets_forum.wsgi.application'
 
@@ -203,3 +234,6 @@ EMAIL_HOST_USER = 'y1397894622@163.com' # 授权的邮箱
 EMAIL_HOST_PASSWORD = 'BRBVSFEEPVLMDCAS' # 邮箱授权时获得的密码，非注册登录密码
 EMAIL_FROM = '灵宠<y1397894622@163.com>' # 发件人抬头
 EMAIL_ACTIVE_URL = 'http://192.168.255.131:8000/emails/verification/' #激活地址
+
+LANGUAGE_CODE = 'zh-hans' # 使用中国语言
+TIME_ZONE = 'Asia/Shanghai' # 使用中国上海时间
